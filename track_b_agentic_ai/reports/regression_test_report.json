@@ -1,0 +1,29 @@
+[
+  {
+    "test_id": "TEST_CASE_01",
+    "query": "What is the SLA uptime target and allowed monthly downtime for Tier-1 services?",
+    "golden_reference": "Tier-1 services require a 99.99% monthly availability target, with a maximum allowable downtime of 4.38 minutes per month.",
+    "candidate_response": "Tier-1 services have a 99.99% monthly uptime target, allowing at most 4.38 minutes of downtime each month.",
+    "judge_verdict": "correct",
+    "passed": true,
+    "reasoning": "Candidate aligns with golden reference (retained 67% of key factual assertions)."
+  },
+  {
+    "test_id": "TEST_CASE_02",
+    "query": "How do we trigger database-cluster read-replica failover when degraded?",
+    "golden_reference": "Verify replication lag with `db-ops check-sync`, then run `db-ops failover --cluster primary-us-east`. The automated failover controller promotes replica-01 to master in under 30 seconds.",
+    "candidate_response": "Run db-ops check-sync, then run db-ops failover --cluster primary-us-east to promote replica-01 in under 30 seconds.",
+    "judge_verdict": "correct",
+    "passed": true,
+    "reasoning": "Candidate aligns with golden reference (retained 62% of key factual assertions)."
+  },
+  {
+    "test_id": "TEST_CASE_03",
+    "query": "What are the cache-redis eviction rules and session TTL?",
+    "golden_reference": "cache-redis operates in `volatile-lru` mode with an 8GB memory ceiling. Default session token TTL is 3600 seconds (1 hour).",
+    "candidate_response": "Cache redis has an 8GB limit with volatile-lru eviction and a 3600 second session TTL.",
+    "judge_verdict": "incorrect",
+    "passed": false,
+    "reasoning": "Regression detected: Candidate omitted or altered critical operational facts (matched only 20%)."
+  }
+]

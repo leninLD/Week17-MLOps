@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+
+# MLflow local database & runs
+mlruns/
+*.db
+*.sqlite*
+*.parquet
+
+# Explicitly track evaluation comparison tables
+!artifacts/*.csv
+!traces/*.csv

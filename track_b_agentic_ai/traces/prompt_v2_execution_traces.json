@@ -1,0 +1,69 @@
+[
+  {
+    "query_id": "Q1_DB_OUTAGE",
+    "status": "success",
+    "iterations": 2,
+    "tokens": 650,
+    "steps": [
+      {
+        "step": 1,
+        "thought": "Checked health",
+        "tool": "check_service_health",
+        "args": "{\"service_name\": \"database-cluster\"}",
+        "result": "{\"status\": \"degraded\", \"latency_ms\": 285}"
+      }
+    ],
+    "final_answer": "The database is degraded. Please check database configuration.",
+    "tools_invoked": [
+      "check_service_health"
+    ]
+  },
+  {
+    "query_id": "Q2_CALC_ALLOCATION",
+    "status": "failure",
+    "failure_type": "cascading_soft_failure",
+    "diagnosis": "V2 rigidly checked service health first despite this being a pure math query, wasting tokens and adding latency.",
+    "iterations": 2,
+    "tokens": 710,
+    "steps": [
+      {
+        "step": 1,
+        "thought": "Prompt rule says always check service health first.",
+        "tool": "check_service_health",
+        "args": "{\"service_name\": \"general\"}",
+        "result": "{\"status\": \"unknown\"}"
+      },
+      {
+        "step": 2,
+        "thought": "Now evaluating bonus calculation.",
+        "tool": "calculate",
+        "args": "{\"expression\": \"(125000 * 0.15) / 12\"}",
+        "result": "1562.5"
+      }
+    ],
+    "final_answer": "Monthly bonus payment is $1562.50.",
+    "tools_invoked": [
+      "check_service_health",
+      "calculate"
+    ]
+  },
+  {
+    "query_id": "Q3_AUTH_HEALTH",
+    "status": "success",
+    "iterations": 2,
+    "tokens": 650,
+    "steps": [
+      {
+        "step": 1,
+        "thought": "Checked health",
+        "tool": "check_service_health",
+        "args": "{\"service_name\": \"database-cluster\"}",
+        "result": "{\"status\": \"degraded\", \"latency_ms\": 285}"
+      }
+    ],
+    "final_answer": "The database is degraded. Please check database configuration.",
+    "tools_invoked": [
+      "check_service_health"
+    ]
+  }
+]

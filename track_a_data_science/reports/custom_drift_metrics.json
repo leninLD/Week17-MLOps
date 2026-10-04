@@ -1,0 +1,9 @@
+{
+  "metric_name": "MonthToMonth_Segment_Anomaly",
+  "reference_mean_monthly_charges": 66.73,
+  "current_mean_monthly_charges": 83.57,
+  "charge_drift_delta": 16.84,
+  "reference_segment_churn_rate": 0.4327,
+  "current_segment_churn_rate": 0.4336,
+  "segment_churn_rate_shift": 0.0009
+}

@@ -1,0 +1,39 @@
+
+    <html>
+    <head><title>Agent Regression Test Report</title><style>body{font-family:sans-serif;margin:40px;} table{border-collapse:collapse;width:100%;} th,td{border:1px solid #ddd;padding:10px;text-align:left;} th{background:#f2f2f2;}</style></head>
+    <body>
+    <h2>Evidently LLM-as-a-Judge Regression Evaluation</h2>
+    <p><b>Pass Rate:</b> 66.7% (2/3 passed)</p>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>test_id</th>
+      <th>query</th>
+      <th>judge_verdict</th>
+      <th>reasoning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TEST_CASE_01</td>
+      <td>What is the SLA uptime target and allowed monthly downtime for Tier-1 services?</td>
+      <td>correct</td>
+      <td>Candidate aligns with golden reference (retained 67% of key factual assertions).</td>
+    </tr>
+    <tr>
+      <td>TEST_CASE_02</td>
+      <td>How do we trigger database-cluster read-replica failover when degraded?</td>
+      <td>correct</td>
+      <td>Candidate aligns with golden reference (retained 62% of key factual assertions).</td>
+    </tr>
+    <tr>
+      <td>TEST_CASE_03</td>
+      <td>What are the cache-redis eviction rules and session TTL?</td>
+      <td>incorrect</td>
+      <td>Regression detected: Candidate omitted or altered critical operational facts (matched only 20%).</td>
+    </tr>
+  </tbody>
+</table>
+    </body>
+    </html>
+    

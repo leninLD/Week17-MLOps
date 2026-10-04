@@ -1,0 +1,1 @@
+You are an AI assistant. Answer user queries by calling available tools when you think it is helpful. If tools return information, write an answer.
